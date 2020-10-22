@@ -7,10 +7,34 @@ from player import PLAYER_LIST, player
 from DBOper import is_player_stored, insert_info, update_CSGO_match_ID, update_DOTA2_match_ID
 import CSGO
 import DOTA2
+import message_sender
+
+
+# 开关DOTA2信息播报
+is_update_DOTA2 = True
+# 开关CSGO信息播报
+is_update_CSGO = True
 
 
 def init():
-    for nickname, short_steamID in json.load(open("list.json", "r")).items():
+    # 读取配置文件
+    try:
+        config = json.load(open("config.json", "r", encoding='UTF-8'))
+        DOTA2.api_key = config["api_key"]
+        message_sender.url = config["mirai_url"]
+        message_sender.authKey = config["mirai_auth_key"]
+        message_sender.bot_qq = config["bot_qq"]
+        message_sender.target = config["qq_group_id"]
+        player_list = config["player_list"]
+        is_update_DOTA2 = config["is_update_DOTA2"]
+        is_update_CSGO = config["is_update_CSGO"]
+    except Exception:
+        print("读取配置文件失败, 请检查配置文件")
+        return -1
+    # 读取玩家信息
+    for i in player_list:
+        nickname = i[0]
+        short_steamID = i[1]
 
         long_steamID = steam_id_convert_32_to_64(short_steamID)
         try:
@@ -45,16 +69,25 @@ def init():
         PLAYER_LIST.append(temp_player)
 
 
-def update():
-    update_and_send_message_CSGO()
-    update_and_send_message_DOTA2()
-    time.sleep(10 * 60)
+def update(player_num: int):
+    if is_update_CSGO:
+        update_and_send_message_CSGO()
+    if is_update_DOTA2:
+        update_and_send_message_DOTA2()
+    # dota每日请求限制100,000次
+    # 每个人假设每次更新都需要请求两次
+    # 所以请求间隔可以设置为 (24 * 60 * 60 / (100000 / (2 * player_num)))
+    # 10个人的情况下, 会17秒更新一次信息
+    time.sleep((24 * 60 * 60) / (100000 / (2 * player_num)))
 
 
 def main():
-    init()
-    while True:
-        update()
+    if init() != -1:
+        while True:
+            player_num = len(PLAYER_LIST)
+            if player_num == 0:
+                return
+            update(player_num=player_num)
 
 
 if __name__ == '__main__':

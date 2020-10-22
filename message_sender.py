@@ -1,16 +1,20 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import requests, json
+import json
+import requests
+
 url = "http://127.0.0.1:8080"
 # 群号
 target = 1111111111
 # bot的QQ号
 bot_qq = 1111111111
+# mirai http的auth key
+authKey = "xxxxxxx"
 
 
 def message(m):
     # Authorize
-    auth_key = {"authKey": "xxxxxxxxx"}
+    auth_key = {"authKey": authKey}
     r = requests.post(url + "/auth", json.dumps(auth_key))
     if json.loads(r.text).get('code') != 0:
         print("ERROR@auth")
