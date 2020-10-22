@@ -190,7 +190,7 @@ def generate_party_message(match_id, player_list: [player]):
             .format(nickname, hero, kda, kills, deaths, assists, gpm, xpm, last_hits,
                     damage, damage_rate, participation, deaths_rate)
 
-    print_str += "战绩详情: https://cn.dotabuff.com/matches/{}".format(match_id)
+    print_str += "战绩详情: https://zh.dotabuff.com/matches/{}".format(match_id)
 
     # print(print_str)
     message_sender.message(print_str)
@@ -295,7 +295,7 @@ def generate_solo_message(match_id, player_obj: player):
         .format(nickname, hero, kda, kills, deaths, assists, gpm, xpm, last_hits,
                 damage, damage_rate, participation, deaths_rate)
 
-    print_str += "战绩详情: https://cn.dotabuff.com/matches/{}".format(match_id)
+    print_str += "战绩详情: https://zh.dotabuff.com/matches/{}".format(match_id)
 
     # print(print_str)
     message_sender.message(print_str)
