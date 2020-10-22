@@ -1,9 +1,10 @@
 #!/bin/bash
 
 sudo apt install screen
+pip install json, requests
 
-qq=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print obj['bot_qq']"`
-pass=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print obj['bot_password']"`
+qq=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print(obj['bot_qq'])"`
+pass=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print(obj['bot_password'])"`
 
 chmod +x ./miraibot/miraiOK_linux_amd64
 
