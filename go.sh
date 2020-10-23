@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo apt install screen
-pip install json, requests
+pip install json
+pip install requests
 
 qq=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print(obj['bot_qq'])"`
 pass=`cat config.json | python -c "import json; import sys; obj=json.load(sys.stdin); print(obj['bot_password'])"`
