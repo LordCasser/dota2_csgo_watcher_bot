@@ -13,6 +13,8 @@ YYGQ的文来自于[dota2_watcher](https://github.com/unilink233/dota2_watcher)
 
 **Windows下可以按照安装指南下载Windows版本的MiraiOK**
 
+**我这两天找了一下没有合适的免费开源微信机器人, 所以可能不会有微信版本**
+
 ## 一键脚本
 
 - 修改`config.json`来配置bot
@@ -30,7 +32,7 @@ YYGQ的文来自于[dota2_watcher](https://github.com/unilink233/dota2_watcher)
 
 - 把[mirai-http-api](https://github.com/project-mirai/mirai-api-http)里的release的jar扔进plugins文件夹
 
-- 启动miraiOK, 登陆你的BOT账号
+- 通过`screen -S bot && ./miraiOK_linux-amd64`启动miraiOK, 登陆你的BOT账号, 这一步可能有一些登陆上的问题, 可以自行`screen -r bot`上去查看
 
 - 在[这里](http://steamcommunity.com/dev/apikey)申请你的steam API key, 修改`config.json`中的`api_key`
 
