@@ -11,6 +11,8 @@ YYGQ的文来自于[dota2_watcher](https://github.com/unilink233/dota2_watcher)
 
 有任何建议可以发issue, 随缘更新
 
+**Windows下可以按照安装指南下载Windows版本的MiraiOK**
+
 ## 一键脚本
 
 - 修改`config.json`来配置bot
@@ -22,7 +24,7 @@ YYGQ的文来自于[dota2_watcher](https://github.com/unilink233/dota2_watcher)
 
 ## 安装指南
 
-- 下载对应版本的[miraiOK](https://github.com/LXY1226/MiraiOK), 有hxd说下不动, 我传了个Linux64版本的[度盘](链接: https://pan.baidu.com/s/1bLYwWWHCcgmnLHoofXTHxQ) 提取码: 5trx 
+- 下载对应版本的[miraiOK](https://github.com/LXY1226/MiraiOK), 有hxd说下不动, 我传了个Linux64版本的[度盘](https://pan.baidu.com/s/1bLYwWWHCcgmnLHoofXTHxQ) 提取码: 5trx 
 
 - 运行一下miraiOK, 然后关闭, 会自动生成一个`plugins`文件夹
 
@@ -36,14 +38,13 @@ YYGQ的文来自于[dota2_watcher](https://github.com/unilink233/dota2_watcher)
 
 - 修改config.json来配置bot
 
-- 通过screen来后台运行: `screen -S dota_bot`
+- 通过screen来后台运行: `screen -S dota_bot`, Windows可以直接运行miraiok
 
 - 运行`run.py`脚本来启动BOT: `python3 run.py`
 
-
 ## 后续计划
 
-- [ ] 搞个一键安装, 方便部署
+- [x] 搞个一键安装, 方便部署
 
 - [ ] 丰富YYGQ内容(大家可以直接提交, 我会合并分支)
 
