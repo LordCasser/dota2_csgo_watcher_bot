@@ -35,7 +35,7 @@ def init():
     for i in player_list:
         nickname = i[0]
         short_steamID = i[1]
-
+        print("{}信息读取完毕, ID:{}".format(nickname, short_steamID))
         long_steamID = steam_id_convert_32_to_64(short_steamID)
         try:
             last_CSGO_match_info = CSGO.get_last_match_by_long_steamID(long_steamID)
@@ -87,6 +87,7 @@ def main():
             player_num = len(PLAYER_LIST)
             if player_num == 0:
                 return
+            print("初始化完成, 开始更新比赛信息")
             update(player_num=player_num)
 
 
