@@ -74,8 +74,8 @@ def generate_party_message(player_list: [player]):
 
     top_rating = 0
     for i in player_list:
-        if i.rating > top_rating:
-            top_rating = i.rating
+        if i.csgo_rating > top_rating:
+            top_rating = i.csgo_rating
 
     if (win and top_rating > 1) or (not win and top_rating > 1):
         postive = True
